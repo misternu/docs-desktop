@@ -1,0 +1,11 @@
+{
+  "name": "docs-desktop",
+  "version": "0.1.0",
+  "main": "app/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^1.7.9"
+  }
+}
