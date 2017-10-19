@@ -1,2 +1,5 @@
 # docs-desktop
-A desktop app for reading documentation
+
+To install dependencies, run `yarn`
+
+To run the program, run `yarn start`
