@@ -1,4 +1,6 @@
-const fake_entries = [
+/* global document */
+
+const fakeEntries = [
   { name: 'foo', description: 'this is what foo does' },
   { name: 'bar', description: 'this is what bar does' },
   { name: 'baz', description: 'this is what baz does' },
@@ -10,6 +12,11 @@ const fake_entries = [
   { name: 'boo', description: 'this is what boo does' }
 ];
 
+const state = {
+  selected: null,
+  options: fakeEntries.slice()
+};
+
 const search = document.querySelector('#search');
 const options = document.querySelector('#options');
 const content = document.querySelector('.content');
@@ -17,7 +24,7 @@ const content = document.querySelector('.content');
 const updateOptions = () => {
   options.innerHTML = '';
   state.options.forEach(entry => {
-    let optionElement = document.createElement('li');
+    const optionElement = document.createElement('li');
     optionElement.innerHTML = entry.name;
     if (entry.name === state.selected) {
       optionElement.id = 'selected';
@@ -28,10 +35,10 @@ const updateOptions = () => {
 
 const updateContent = () => {
   if (state.selected) {
-    const entry = fake_entries.find(e => e.name === state.selected);
-    let header = document.createElement('h1');
+    const entry = fakeEntries.find(e => e.name === state.selected);
+    const header = document.createElement('h1');
     header.innerHTML = entry.name;
-    let description = document.createElement('p');
+    const description = document.createElement('p');
     description.innerHTML = entry.description;
     content.innerHTML = '';
     content.appendChild(header);
@@ -49,7 +56,7 @@ const selectOption = option => {
 
 search.addEventListener('input', event => {
   const term = event.target.value;
-  state.options = fake_entries.filter(s => s.name.includes(term));
+  state.options = fakeEntries.filter(s => s.name.includes(term));
   updateOptions();
 });
 
@@ -60,10 +67,5 @@ options.addEventListener('click', event => {
     selectOption(null);
   }
 });
-
-let state = {
-  selected: null,
-  options: fake_entries.slice()
-};
 
 updateOptions();
