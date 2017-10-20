@@ -4,7 +4,12 @@
   "main": "app/main.js",
   "scripts": {
     "start": "electron .",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "prod": "webpack --config webpack.build.config.js && electron --noDevServer .",
+    "dev": "webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js",
+    "build": "webpack --config webpack.build.config.js",
+    "package": "webpack --config webpack.build.config.js",
+    "postpackage": "electron-packager ./ --out=./builds"
   },
   "dependencies": {
     "babili-webpack-plugin": "^0.1.2",
