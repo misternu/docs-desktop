@@ -16,27 +16,21 @@ const fakeEntries = [
 ];
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      search: '',
-      selected: ''
-    };
-    this.searchChange = this.searchChange.bind(this);
-    this.clickOption = this.clickOption.bind(this);
-  }
-  searchChange(event) {
+  state = {
+    search: '',
+    selected: ''
+  };
+
+  searchChange = event => {
     const search = event.target.value;
     this.setState({ search });
-  }
-  clickOption(name) {
+  };
+  clickOption = name => {
     this.setState({ selected: name });
-  }
+  };
   render() {
     const term = this.state.search;
-    const optionNames = fakeEntries
-      .filter(o => o.name.includes(term))
-      .map(o => o.name);
+    const optionNames = fakeEntries.filter(o => o.name.includes(term)).map(o => o.name);
     let content;
     if (this.state.selected !== '') {
       const entry = fakeEntries.find(e => e.name === this.state.selected);
