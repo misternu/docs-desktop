@@ -1,3 +1,5 @@
+/* global document */
+
 const fakeEntries = [
   { name: 'foo', description: 'this is what foo does' },
   { name: 'bar', description: 'this is what bar does' },
