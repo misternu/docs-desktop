@@ -31,6 +31,9 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json']
+  },
   target: 'electron-renderer', // the actual important bit
   plugins: [
     new HtmlWebpackPlugin(), // creates the index for us.
