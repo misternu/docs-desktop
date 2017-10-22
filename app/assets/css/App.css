@@ -6,73 +6,8 @@ body {
 }
 
 body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   position: absolute;
-}
-
-h1 {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 24px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 500;
-  line-height: 26.4px;
-}
-p {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 400;
-  line-height: 20px;
-}
-
-.sidebar {
-  position: fixed;
-  width: 200px;
-  height: 100%;
-  background: gray;
-}
-
-.content {
-  position: absolute;
-  margin-left: 200px;
-  padding-left: 40px;
-  width: 100%;
-  height: 100%;
-}
-
-#search {
-  position: absolute;
-  width: 170px;
-  margin-top: 10px;
-  margin-left: 10px;
-  padding: 3px;
-  border-radius: 6px;
-}
-
-#options {
-  background: gainsboro;
-  margin-top: 45px;
-  padding: 0;
-  height: 100%;
-}
-
-li {
-  list-style: none;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 15.4px;
-  padding: 3px;
-}
-
-li:hover {
-  background: #afafaf;
-}
-
-#selected {
-  background: gray;
-  color: white;
 }

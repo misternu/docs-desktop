@@ -1,38 +1,60 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Option from './Option';
+
+const SidebarStyle = styled.div`
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  background: gray;
+`;
+
+const SearchStyle = styled.input`
+  position: absolute;
+  width: 170px;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 3px;
+  border-radius: 6px;
+`;
+
+const OptionsStyle = styled.ul`
+  background: gainsboro;
+  margin-top: 45px;
+  padding: 0;
+  height: 100%;
+`;
 
 const Sidebar = props => {
-  const options = props.options.map(option => {
-    const isSelected = props.selected === option;
-    return (
-      <li
-        id={isSelected ? 'selected' : null}
-        key={option}
-        onClick={() => props.clickOption(option)}
-      >
-        {option}
-      </li>
-    );
-  });
+  const options = props.entries
+    .filter(e => e.name.includes(props.search))
+    .map(option => (
+      <Option
+        selected={props.selected === option.name}
+        key={option.name}
+        name={option.name}
+        onClick={() => props.clickOption(option.name)}
+      />
+    ));
   return (
-    <div className="sidebar">
-      <input
+    <SidebarStyle>
+      <SearchStyle
         id="search"
         type="text"
         value={props.search}
         onChange={props.searchChange}
       />
-      <ul id="options">{options}</ul>
-    </div>
+      <OptionsStyle>{options}</OptionsStyle>
+    </SidebarStyle>
   );
 };
 
 Sidebar.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string),
   search: PropTypes.string,
-  searchChange: PropTypes.function,
-  clickOption: PropTypes.function,
-  selected: PropTypes.string
+  searchChange: PropTypes.func,
+  selected: PropTypes.string,
+  entries: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default Sidebar;
